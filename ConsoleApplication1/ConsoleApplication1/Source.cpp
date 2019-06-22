@@ -21,7 +21,7 @@ int main()
 	double scale = 0.2;
 
 	//Read in the image
-	Mat img = imread("test9.jpg", IMREAD_GRAYSCALE);
+	Mat img = imread("test5.jpg", IMREAD_GRAYSCALE);
 	//Display the image
 	namedWindow("image", WINDOW_FREERATIO);
 	imshow("image", img);
@@ -52,7 +52,17 @@ int main()
 	picture << "solid pic" << endl;
 	picture << endl;
 
-	//Iterating through every other pixel 
+	/*
+	* Iterating through every other pixel 
+	*
+	*                * -- * -- *
+	*                |  \ | /  |
+	*                * -- * -- *
+	*                |  / | \  |
+	*                * -- * -- *
+	*
+	*/
+
 	for (int row = 1; row < img.rows-1; row+=2)
 	{
 		for (int col = 1; col < img.cols-1; col+=2)
@@ -202,24 +212,11 @@ int main()
 		}
 	}
 
+	//Creating the base
+	
+
 	picture << "endsolid pic";
-
-	// TESTS
-
-	//Outputting the values of the array
-	/*for (int row = 0; row < img.rows; row++)
-	{
-		for (int col = 0; col < img.cols; col++)
-		{
-			cout << pixelValues[row][col] << " ";
-		}
-		cout << endl;
-	}*/
-
-	//ReDisplay the image (to see changes)
-	/*namedWindow("output", WINDOW_FREERATIO);
-	imshow("output", img);
-	waitKey(0);*/
+	picture.close();
 
 	return 0;
 }
